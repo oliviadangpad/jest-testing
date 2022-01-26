@@ -1,5 +1,21 @@
 const functions = require("./function");
 
+beforeAll(() => initialDatabase());
+afterAll(() => closeDatabase());
+
+const initialDatabase = () => console.log("Database Initialized...");
+const closeDatabase = () => console.log("Database Closed...");
+const nameCheck = () => console.log("checking name");
+
+describe("Check Names", () => {
+  beforeEach(() => nameCheck());
+
+  test("User is Jess", () => {
+    const user = "Jess";
+    expect(user).toBe("Jess");
+  });
+});
+
 // toBe... only for primitive types: number, boolean, null, undefined
 
 describe("Basic tests", () => {
